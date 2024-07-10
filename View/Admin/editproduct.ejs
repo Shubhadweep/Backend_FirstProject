@@ -1,0 +1,38 @@
+<%- include('../Includes/header.ejs') %>
+   <link rel="stylesheet" href="/CSS/adminEditProd.css">
+</head>
+
+<body>
+   
+    <%- include('../Includes/navbar.ejs') %>
+    <main>
+        <div class="form">
+            <br>
+            <h2>Edit Your Product Details</h2>
+            <form action="/admin/updateProd" method="POST" id="formbox">
+                
+                
+                <input type="hidden" name="id" id="id" value="<%=data._id%>">
+
+                <label for="Pname">Eneter Your product Name</label><br>
+                <input type="text"  name="pname" id="pname" value="<%=data.product_Name%>"><br>
+
+                
+                <label for="Pprice">Eneter Your product Price</label><br>
+                <input type="number" name="pprice" id="pprice" value="<%=data.product_Price%>"><br>
+
+                
+                <label for="Pcolor">Eneter Your product Colour</label><br>
+                <input type="text" name="pcolor" id="pcolor" value="<%=data.product_Color%>"><br>
+
+                
+                <label for="Pdes">Eneter Your product details</label><br>
+                <input type="text" name="pdes" id="pdes" value="<%=data.product_Company%>"><br>
+
+                <input type="submit" id="btn" value="Update Details">
+
+            </form>
+        </div>
+    </main>
+
+    <%- include('../Includes/footer.ejs') %>

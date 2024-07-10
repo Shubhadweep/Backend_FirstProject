@@ -1,0 +1,27 @@
+h2{
+    text-align: center;
+}
+body{
+    background-color: rgba(165, 42, 42, 0.741);
+}
+
+#formbox{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    background-color: antiquewhite;
+    height: 450px;
+    width: 400px;
+    margin-left: 560px;
+    border-radius: 20px;
+    
+}
+
+#btn{
+    margin-top: 30px;
+    color:wheat;
+    border: none;
+    border-radius: 7px;
+    background-color:green;
+}

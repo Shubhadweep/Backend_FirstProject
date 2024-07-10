@@ -1,0 +1,41 @@
+<%- include('../Includes/header.ejs') %>
+   <link rel="stylesheet" href="/CSS/adminAddProd.css">
+</head>
+
+<body>
+   
+    <%- include('../Includes/navbar.ejs') %>
+    <main>
+        <div class="form">
+            <br>
+            <h2>Admin Portal</h2>
+            <form action="/postData" method="POST" enctype="multipart/form-data" id="formbox">
+
+                <label for="pname">Eneter Your product Name</label><br>
+                <input type="text" name="pname" id="pname" placeholder="Product name"><br>
+
+                
+                <label for="pprice">Eneter Your product Price</label><br>
+                <input type="number" name="pprice" id="pprice" placeholder="Product Price"><br>
+
+                
+                <label for="pcolor">Eneter Your product Colour</label><br>
+                <input type="text" name="pcolor" id="pcolor" placeholder="Product Colour"><br>
+
+                
+                <label for="pcom">Eneter Product Company </label><br>
+                <input type="text" name="pcom" id="pcom" placeholder="Company Name"><br>
+
+                <!-- <label for="ppic">add Image File </label><br>  //This is for Single Image upload
+                <input type="file" name="product_image" id="ppic" placeholder="Product Image" ><br> -->
+
+                 <label for="ppic">add Image File </label><br>
+                <input type="file" name="product_image" id="ppic" placeholder="Product Image" multiple ><br>
+
+                <input type="submit" id="btn" value="Add Product">
+
+            </form>
+        </div>
+    </main>
+
+    <%- include('../Includes/footer.ejs') %>

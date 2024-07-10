@@ -1,0 +1,77 @@
+<%- include('../Includes/header.ejs') %>
+ <link rel="stylesheet" href="/CSS/adminViewProd.css">
+</head>
+
+<body>
+
+ <%- include('../Includes/navbar.ejs') %>
+
+<main>
+    <%if(data.length > 0){%>
+        <h2 class ="text-center text-light">All Products For Admin</h2>
+    <form class="d-flex" role="search" action="/admin/searchProd" method="POST">
+        <input class="form-control1 me-2" name="SearchValue" type="search" placeholder="Search Your Product" aria-label="Search">
+        <button class="btn btn-outline-success" id="button" type="submit">Search</button>
+      </form>
+      <!-- Sort By Price-->
+      <div class="dropdown d-flex justify-content-end">
+        <button class="btn btn-warning dropdown-toggle me-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort By Price
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/admin/viewProd">Select</a></li>
+          <li><a class="dropdown-item" href="/admin/sorting/ascending">Price: Low to High</a></li>
+          <li><a class="dropdown-item" href="/admin/sorting/descending">Price: High to Low</a></li>
+        </ul>
+      </div> 
+
+    <section class ="viewForm">
+        <div class ="container py-5">
+            
+            
+                <div class="row bg-info py-2 text-center">
+                    
+                    <div class="col"><b>Product Name</b></div>
+                    <div class="col"><b>Product Price</b></div>
+                    <div class="col"><b>Product colour</b></div>
+                    <div class="col"><b>Product Company</b></div>
+                    <div class="col"><b>Product Pic</b></div>
+                    <div class="col"><b>Delete</b></div>
+                    <div class="col"><b>Edit</b></div>
+                </div>
+                <%for(let obj of data){%>
+                    <div class="row text-light text-center my-2">
+                        
+                        <div class="col"><%= obj.product_Name %></div>
+                        <div class="col"><%= obj.product_Price %></div>
+                        <div class="col"><%= obj.product_Color %></div>
+                        <div class="col"><%= obj.product_Company %></div>
+                        <!-- <div class="col"><img src="/<%= obj.product_Image %>" alt="image"></div> -->
+                        <div class="col"><img src="/<%= obj.product_Image[0] %>" alt="image"><img src="/<%= obj.product_Image[1] %>" alt="image"></div>
+                        <div class="col">
+                            <a href="/admin/deleteProd/<%=obj._id%>"  class="btn btn-danger">Delete</a>
+
+                            <!--Delete button using Post-->
+                            <form action="/admin/deleteProd" method="POST">
+                                <input type="hidden" name="id" id="id" value="<%=obj._id%>">
+                               <!--  <a href="/admin/deleteProd/<%=obj._id%>"  class="btn btn-danger"></i>Delete</a>-->
+                               <input type="submit" value="Delete" id="btn" class="btn btn-danger" >
+                            </form>
+
+                        </div>
+                        <div class="col">
+                            <a href="/admin/editProd/<%=obj._id%>" class="btn btn-warning">Edit</a>
+                        </div>
+                    </div>
+                <%}%>
+            <%}else{%>
+                <h3>No Product Found</h3>
+                <%}%>
+        </div>
+    </section>
+</main>
+
+
+
+<%- include('../Includes/footer.ejs') %>
+
